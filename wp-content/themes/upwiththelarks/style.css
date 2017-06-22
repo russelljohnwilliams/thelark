@@ -895,7 +895,6 @@ object {
 
 
 html body{
-	background: whitesmoke;
 	font-family: 'Montserrat', sans-serif;
 	text-transform: uppercase;
 }
@@ -913,11 +912,19 @@ html body{
 .site-header{
 	position: fixed;
 	z-index: 10;
-	background: whitesmoke;
 	margin: 0;
+	background: -webkit-linear-gradient(bottom, rgba(0,0,0,0), rgba(255,255,255,1)); 
 	/*width: 100%;*/
 	/*padding: 10px 20px 0 20px;*/
+
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+87,ffffff+100&1+88,0+100 */
+	background: -moz-linear-gradient(top, rgba(255,255,255,1) 91%, rgba(255,255,255,1) 92%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, rgba(255,255,255,1) 91%,rgba(255,255,255,1) 92%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(255,255,255,1) 91%,rgba(255,255,255,1) 92%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
+
 }
+
 
 h1{
 	margin: 0;
@@ -979,7 +986,7 @@ float: right;
 
 .entry-content{
 	margin: 0;
-	color: white;
+	color: black;
 	overflow: hidden;
 	height: 100%;
 }
@@ -1044,10 +1051,10 @@ p.cloned-event{
 	display: inline-block;
 	overflow: auto;
 	/*margin: 3px;*/
-	/*border: 1px solid #534847;*/
+	border: 3px solid black;
 	font-size: small;
 	margin-right: -1px;
-	margin: 2px;
+	margin: 4px;
 	margin-bottom: -5px;
 }
 
@@ -1076,7 +1083,7 @@ p.cloned-event{
 .cloned-opening-hours, .opening-hours-wrapper{
 	font-size: 2.50vw;
 	font-weight: bold;
-	color: white;
+	color: black;
 }
 
 .page-builder{
@@ -1141,7 +1148,7 @@ p.cloned-event{
 }
 
 .event-wrapper{
-	color: white;
+	color: black;
 }
 
 .facebook-wrapper:hover{ 
@@ -1204,7 +1211,7 @@ p.cloned-event{
 		/*border: 1px solid black;*/
 		border-radius: 0;
 		background: none;
-		color: white;
+		color: black;
 		padding: 3px 0;
 	}
 
@@ -1212,9 +1219,6 @@ p.cloned-event{
 
 @media (max-width: 450px) and (orientation: portrait){
 
-	html, .site-header{
-		background: whitesmoke;
-	}
 
 	.skylark-header-image{
 		/*filter: invert(100%);*/

@@ -9,7 +9,7 @@
    cloneEvent()
    buildPages()
    getInstagramImage()
-   colours()
+   // colours()
    // resizeHeader()
    addHomeToMenu()
    setViewportMargin()
@@ -26,7 +26,7 @@ jQuery(function(){
     setViewportMargin()
     buildPages();
     // resizeHeader()
-    colours()
+    // colours()
   });
 })
 
@@ -173,7 +173,7 @@ function buildPages(){
 
   var newPosts = jQuery('.page-builder').eq(0)
   viewportWidth = jQuery('#viewport').width()
-  resize = (viewportWidth - 6) / 3 
+  resize = (viewportWidth - 24) / 3 
   
   if (viewportWidth < 450){
     var cw = jQuery('.post-wrapper')
@@ -187,11 +187,13 @@ function buildPages(){
 
   }
   else{
+    console.log('resize', resize)
     var cw = jQuery('.post-wrapper')
-    .css("width", (viewportWidth - 6) / 3 )
+    .css("width", (resize) )
     .width();
+    console.log("cw", cw)
     jQuery('.post-wrapper').css('height', cw +'px');
-
+// needs to add the border to the width to makeit correct height
     jQuery('#viewport').height(viewportWidth)
     var viewportHeight = jQuery('#viewport').height()
   }
@@ -213,18 +215,18 @@ function buildPages(){
 
 // sets background colours of the tiles (make it randomly selected?)
 
-function colours(){
-    // var colour = ['pink', 'grey', 'orange', 'yellow', 'white', 'turquois-e', 'green', 'purple', 'grey']
-    var colour = ['#008c9e', '#444f59', '#F6D155',
-    '#fec8c9', '#3C3530', '#DC4C46',
-    '#D2691E', '#95DEE3 ', '#92B558']
+// function colours(){
+//     // var colour = ['pink', 'grey', 'orange', 'yellow', 'white', 'turquois-e', 'green', 'purple', 'grey']
+//     var colour = ['#008c9e', '#444f59', '#F6D155',
+//     '#fec8c9', '#3C3530', '#DC4C46',
+//     '#D2691E', '#95DEE3 ', '#92B558']
 
-    for (var i = 0; i < 9; i++){
-        // var x = Math.floor((Math.random() * 9) + 1);
-        // jQuery('.entry-content').eq(9+i).css('background', colour[i])
-        jQuery('.entry-content').eq(9+i).css('background', colour[i])
-      }
-    }
+//     for (var i = 0; i < 9; i++){
+//         // var x = Math.floor((Math.random() * 9) + 1);
+//         // jQuery('.entry-content').eq(9+i).css('background', colour[i])
+//         jQuery('.entry-content').eq(9+i).css('background', colour[i])
+//       }
+    // }
 
 // function resizeHeader(){
 //   console.log("bash")
