@@ -1,27 +1,30 @@
-  var screenWidth = jQuery(window).width()
-  var screenHeight = jQuery(window).height() -2
-  var currentPosition = 0
-  var resize
-  var viewportWidth
 
-  jQuery( document ).ready(function() {
-   addContactDetails()
-   cloneEvent()
-   buildPages()
-   getInstagramImage()
-   addHomeToMenu()
-   setViewportMargin()
- })
+//CREATE STATE FOR ALL FUNCTION TO READ FROM.
+
+var screenWidth = jQuery(window).width()
+var screenHeight = jQuery(window).height() -2
+var currentPosition = 0
+var resize
+var viewportWidth = jQuery('#viewport').width() 
+
+jQuery( document ).ready(function() {
+ addContactDetails()
+ cloneEvent()
+ buildPages()
+ getInstagramImage()
+ addHomeToMenu()
+ setViewportMargin()
+})
 
 // resize function that deletes and redraws the size of the post tiles
 
 jQuery(window).resize(function() {
   // jQuery('#new-main').remove();
   // buildPages();
-    setPostSize()
+  setPostSize()
+  setViewportMargin()
 
 })
-
 
 // pops Home/Maison to the beggining of the menu
 
@@ -29,7 +32,6 @@ function addHomeToMenu(){
   jQuery('.home-page').attr('id', "home")
   jQuery('.nav-menu').prepend('  <li class="homePag"><a href="#home">home | maison</a></li>')
 }
-
 
 // function to scroll the viewport back to the first page (the post tiles)
 
@@ -92,9 +94,8 @@ jQuery(function(){
 
 function setViewportMargin(){
   var menuHeight = jQuery('#masthead').height()
-  jQuery('#viewport').css('margin-top', menuHeight + 2)
+  jQuery('#viewport').css('margin-top', menuHeight + 5)
 }
-
 
 // takes the (hidden with css) tagline, generated within wordpress, splits at an asterix and separates onto new lines to create a multiple line tagline
 
@@ -118,7 +119,6 @@ function getInstagramImage(){
     var instaImage = jQuery('div.post-wrapper')
     .eq(1)
     .find('img')
-
     instaImage.removeAttr("height width")
     .css({"display" : "block", "height" : "100%", "width" : "100%"})
     .clone()
@@ -149,78 +149,46 @@ function buildPages(){
 
   var newPosts = jQuery('.page-builder').eq(0)
   viewportWidth = jQuery('#viewport').width()
-  // resize = (viewportWidth - 24) / 3 
-  
-  // if (viewportWidth < 450){
-  //   var cw = jQuery('.post-wrapper')
-  //   .css({"width": (viewportWidth - 2), "height": (screenHeight / 5)})
-  //   .width();
-
-  //   jQuery('#viewport').height((screenHeight / 5) * 4)
-  //   var viewportHeight = jQuery('#viewport').height()
-
-  //   jQuery('#masthead').css('height', screenHeight / 5)
-
-  // }
-  // else{
-
-    setPostSize()
-
-// // set width of .post-wrapper and creave variable
-//     var cw = jQuery('.post-wrapper')
-//     .css("width", (resize) )
-//     .width();
-
-// // set variable of  post-wrapper border 
-//     var border = jQuery('.post-wrapper').css("border")
-
-//     //set variable of post-wrapper width (cw) + border size (border)
-//     var totalWidth = (parseInt(border[0]) * 2)  + cw
-
-// // set height of post-wrapper to that of width
-//     jQuery('.post-wrapper').css('height', totalWidth +'px');
-
-    // set height of viewport to be that of viewport
-    // jQuery('#viewport').height(viewportWidth)
-
-    // var viewportHeight = jQuery('#viewport').height()
-  // }
-
+  setPostSize()
   jQuery("#main")
   .clone()
   .removeAttr('id')
   .attr('id', "new-main")
   .appendTo(newPosts)
-
-  // jQuery('#viewport').height(viewportWidth)
-  // var viewportHeight = jQuery('#viewport').height()
-
-  
-  // jQuery('.page-builder').css('width', (viewportWidth + 5) +'px')
-  // jQuery('.page-wrapper').css('height', (viewportHeight) +'px')
-  // jQuery('.page-builder').css('height', (viewportHeight) +'px')
 }
 
 function setPostSize(){
-
-console.log("size me up")
+// MUST AMEND TO ALLOW FOR ADDITION OF BORDERS AND MARGINS
   var newPosts = jQuery('.page-builder').eq(0)
   viewportWidth = jQuery('#viewport').width()
-
   resize = (viewportWidth - 24) / 3 
+  if (viewportWidth < 450){
+    var cw = jQuery('.post-wrapper')
+    .css({"width": (viewportWidth - 2), "height": (screenHeight / 5)})
+    .width();
 
-      var cw = jQuery('.post-wrapper')
-      .css("width", (resize) )
-      .width();
-      var border = jQuery('.post-wrapper').css("border")
-      var totalWidth = (parseInt(border[0]) * 2)  + cw
-      jQuery('.post-wrapper').css('height', totalWidth +'px');
-      jQuery('#viewport').height(viewportWidth)
+    jQuery('#viewport').height((screenHeight / 5) * 4)
+    var viewportHeight = jQuery('#viewport').height()
 
-      var viewportHeight = jQuery('#viewport').height()
-      jQuery('.page-builder').css('width', (viewportWidth + 5) +'px')
-      jQuery('.page-wrapper').css('height', (viewportHeight) +'px')
-      jQuery('.page-builder').css('height', (viewportHeight) +'px')
+    jQuery('#masthead').css('height', screenHeight / 5)
 
+  }
+  else{
+
+    var cw = jQuery('.post-wrapper')
+    .css("width", (resize) )
+    .width();
+    var border = jQuery('.post-wrapper').css("border")
+    var totalWidth = (parseInt(border[0]) * 2)  + cw
+    jQuery('.post-wrapper').css('height', totalWidth +'px');
+    jQuery('#viewport').height(viewportWidth)
+
+
+  }
+  var viewportHeight = jQuery('#viewport').height()
+  jQuery('.page-builder').css('width', (viewportHeight + 5) +'px')
+  jQuery('.page-wrapper').css('height', (viewportHeight) +'px')
+  jQuery('.page-builder').css('height', (viewportHeight) +'px')
+  
 }
 
