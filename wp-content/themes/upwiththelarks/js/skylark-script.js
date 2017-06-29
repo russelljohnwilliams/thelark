@@ -8,7 +8,7 @@ var resize
 var viewportWidth = jQuery('#viewport').width() 
 
 jQuery( document ).ready(function() {
- addContactDetails()
+ // addContactDetails()
  cloneEvent()
  buildPages()
  getInstagramImage()
@@ -35,15 +35,15 @@ function addHomeToMenu(){
 
 // function to scroll the viewport back to the first page (the post tiles)
 
-jQuery(function(){
-  jQuery('.site-title').bind('click', function(event){
-    jQuery('#viewport').stop().animate({
-      scrollLeft: (0)
-    }, 1000);
-    currentPosition = 0
-    event.preventDefault();
-  });
-});
+// jQuery(function(){
+//   jQuery('.site-title').bind('click', function(event){
+//     jQuery('#viewport').stop().animate({
+//       scrollLeft: (100000000)
+//     }, 1000);
+//     currentPosition = 0
+//     event.preventDefault();
+//   });
+// });
 
 // function that creates an animated scroll left or right through the pages inside the 'viewport' after a link is clicked in the header menu
 
@@ -57,7 +57,7 @@ jQuery(function() {
     jQuery('#viewport')
     .stop()
     .animate({
-      scrollLeft: (moveTo - 5)
+      scrollLeft: (moveTo)
     }, 1000);
     currentPosition = moveTo
     event.preventDefault();
@@ -99,16 +99,16 @@ function setViewportMargin(){
 
 // takes the (hidden with css) tagline, generated within wordpress, splits at an asterix and separates onto new lines to create a multiple line tagline
 
-function addContactDetails(){
-  var split = jQuery('.site-description')[0].innerHTML.split('*')
-  jQuery("<div></div>")
-  .addClass('split-tagline')
-  .appendTo('.site-branding');
+// function addContactDetails(){
+//   var split = jQuery('.site-description')[0].innerHTML.split('*')
+//   jQuery("<div></div>")
+//   .addClass('split-tagline')
+//   .appendTo('.site-branding');
 
-  for (var i = 0; i < split.length; i++){
-    jQuery('<p>').html(split[i]).appendTo('.split-tagline')
-  }
-};
+//   for (var i = 0; i < split.length; i++){
+//     jQuery('<p>').html(split[i]).appendTo('.split-tagline')
+//   }
+// };
 
 // a plugin is used to pull the most recent image from instagram, this strips away all the irrelevant html and presents just the image without
 
@@ -161,7 +161,7 @@ function setPostSize(){
 // MUST AMEND TO ALLOW FOR ADDITION OF BORDERS AND MARGINS
   var newPosts = jQuery('.page-builder').eq(0)
   viewportWidth = jQuery('#viewport').width()
-  resize = (viewportWidth - 24) / 3 
+  resize = (viewportWidth - 35) / 3 
   if (viewportWidth < 450){
     var cw = jQuery('.post-wrapper')
     .css({"width": (viewportWidth - 2), "height": (screenHeight / 5)})
@@ -186,7 +186,7 @@ function setPostSize(){
 
   }
   var viewportHeight = jQuery('#viewport').height()
-  jQuery('.page-builder').css('width', (viewportHeight + 5) +'px')
+  jQuery('.page-builder').css('width', (viewportHeight) +'px')
   jQuery('.page-wrapper').css('height', (viewportHeight) +'px')
   jQuery('.page-builder').css('height', (viewportHeight) +'px')
   

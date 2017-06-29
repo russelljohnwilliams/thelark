@@ -3816,6 +3816,17 @@ final class WP_Customize_Manager {
 			'section'    => 'title_tagline',
 		) );
 
+		$this->add_setting( 'blogtelephone', array(
+			'default'    => get_option( 'blogtelephone' ),
+			'type'       => 'option',
+			'capability' => 'manage_options',
+		) );
+
+		$this->add_control( 'blogtelephone', array(
+			'label'      => __( 'Telephone' ),
+			'section'    => 'title_tagline',
+		) );
+
 		// Add a setting to hide header text if the theme doesn't support custom headers.
 		if ( ! current_theme_supports( 'custom-header', 'header-text' ) ) {
 			$this->add_setting( 'header_text', array(
@@ -3831,6 +3842,8 @@ final class WP_Customize_Manager {
 				'type'     => 'checkbox',
 			) );
 		}
+
+
 
 		$this->add_setting( 'site_icon', array(
 			'type'       => 'option',
@@ -3907,6 +3920,7 @@ final class WP_Customize_Manager {
 			'type'     => 'checkbox',
 			'priority' => 40,
 		) );
+
 
 		$this->add_control( new WP_Customize_Color_Control( $this, 'header_textcolor', array(
 			'label'   => __( 'Header Text Color' ),
