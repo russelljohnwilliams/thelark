@@ -6,6 +6,7 @@ var screenHeight = jQuery(window).height() -2
 var currentPosition = 0
 var resize
 var viewportWidth = jQuery('#viewport').width() 
+var images = []
 
 jQuery( document ).ready(function() {
  // addContactDetails()
@@ -44,6 +45,56 @@ function addHomeToMenu(){
 //     event.preventDefault();
 //   });
 // });
+
+// display photos in Food tile
+
+jQuery(function() {
+  var dir = "wp-content/uploads/food";
+  var fileextension = ".jpg";
+  // var images = []
+  jQuery.ajax({
+      //This will retrieve the contents of the folder if the folder is configured as 'browsable'
+      url: dir,
+      success: function (data) {
+          // List all .png file names in the page
+          jQuery(data).find("a:contains(" + fileextension + ")").each(function () {
+            var filename = this.href.replace(window.location.host, "").replace("http://", "");
+            images.push( jQuery("<img src='" + dir + filename + "'>"))
+            // jQuery(".background-food").append(images);
+          });
+          for(var i = 0; i < images.length; i++) {
+              images.splice(i+0,1);
+          }
+
+            // console.log("img", images)
+            // jQuery(".background-food").append(images[0]);
+
+         for (var i=0; i< images.length; i++) {
+            (function(ind) {
+                setTimeout(function(){jQuery(".background-food").empty().append(images[ind]);;}, 1000 * ind);
+            })(i);
+         }
+
+
+        }
+      });
+})
+
+// jQuery(function(){
+//   setTimeout("slideshow()",2500)
+// })
+
+// function slideshow(){
+//   var num = 0
+//   num++
+//   consoleLog(num)
+//   setTimeout("slideshow()",2500)
+// }
+
+// function consoleLog(num){
+//   // jQuery(".background-food").append(images[num]);
+//   console.log("hello", num)
+// }
 
 // function that creates an animated scroll left or right through the pages inside the 'viewport' after a link is clicked in the header menu
 
@@ -159,36 +210,36 @@ function buildPages(){
 
 function setPostSize(){
 // MUST AMEND TO ALLOW FOR ADDITION OF BORDERS AND MARGINS
-  var newPosts = jQuery('.page-builder').eq(0)
-  viewportWidth = jQuery('#viewport').width()
-  resize = (viewportWidth - 35) / 3 
-  if (viewportWidth < 450){
-    var cw = jQuery('.post-wrapper')
-    .css({"width": (viewportWidth - 2), "height": (screenHeight / 5)})
-    .width();
+var newPosts = jQuery('.page-builder').eq(0)
+viewportWidth = jQuery('#viewport').width()
+resize = (viewportWidth - 35) / 3 
+if (viewportWidth < 450){
+  var cw = jQuery('.post-wrapper')
+  .css({"width": (viewportWidth - 2), "height": (screenHeight / 5)})
+  .width();
 
-    jQuery('#viewport').height((screenHeight / 5) * 4)
-    var viewportHeight = jQuery('#viewport').height()
-
-    jQuery('#masthead').css('height', screenHeight / 5)
-
-  }
-  else{
-
-    var cw = jQuery('.post-wrapper')
-    .css("width", (resize) )
-    .width();
-    var border = jQuery('.post-wrapper').css("border")
-    var totalWidth = (parseInt(border[0]) * 2)  + cw
-    jQuery('.post-wrapper').css('height', totalWidth +'px');
-    jQuery('#viewport').height(viewportWidth)
-
-
-  }
+  jQuery('#viewport').height((screenHeight / 5) * 4)
   var viewportHeight = jQuery('#viewport').height()
-  jQuery('.page-builder').css('width', (viewportHeight) +'px')
-  jQuery('.page-wrapper').css('height', (viewportHeight) +'px')
-  jQuery('.page-builder').css('height', (viewportHeight) +'px')
-  
+
+  jQuery('#masthead').css('height', screenHeight / 5)
+
+}
+else{
+
+  var cw = jQuery('.post-wrapper')
+  .css("width", (resize) )
+  .width();
+  var border = jQuery('.post-wrapper').css("border")
+  var totalWidth = (parseInt(border[0]) * 2)  + cw
+  jQuery('.post-wrapper').css('height', totalWidth +'px');
+  jQuery('#viewport').height(viewportWidth)
+
+
+}
+var viewportHeight = jQuery('#viewport').height()
+jQuery('.page-builder').css('width', (viewportHeight) +'px')
+jQuery('.page-wrapper').css('height', (viewportHeight) +'px')
+jQuery('.page-builder').css('height', (viewportHeight) +'px')
+
 }
 

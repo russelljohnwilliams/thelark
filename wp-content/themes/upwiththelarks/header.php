@@ -25,7 +25,7 @@
 
 		<header id="masthead" class="site-header" role="banner">
 			<div class="site-branding">
-			<div class='contact-details'><p>Tel: <a href="tel:0131 629 3037">0131 629 3037</a></p><p>contact: <a href="http://m.me/SkylarkPorty" target="_blank">the skylark</a></p><p>map: <a href="https://www.google.co.uk/maps/place/Skylark/@55.9518272,-3.1124321,17.84z/data=!4m12!1m6!3m5!1s0x0:0xe8e7143a29c586a3!2sSkylark!8m2!3d55.951901!4d-3.11118!3m4!1s0x0:0xe8e7143a29c586a3!8m2!3d55.951901!4d-3.11118" target="_blank"> yeah? it's a map </a></p><p>Join: us</p></div>
+			<div class='contact-details'><p>Tel: <a href="tel:0131 629 3037">0131 629 3037</a></p><p>contact: <a href="http://m.me/SkylarkPorty" target="_blank">the skylark</a></p><p>where: <a href="https://www.google.co.uk/maps/place/Skylark/@55.9518272,-3.1124321,17.84z/data=!4m12!1m6!3m5!1s0x0:0xe8e7143a29c586a3!2sSkylark!8m2!3d55.951901!4d-3.11118!3m4!1s0x0:0xe8e7143a29c586a3!8m2!3d55.951901!4d-3.11118" target="_blank"> here </a></p><p>Join: us</p></div>
 				<?php
 				if ( is_front_page() && is_home() ) : ?>
 				<div class="skylark-header-image">	<?php the_header_image_tag(); ?></div>
