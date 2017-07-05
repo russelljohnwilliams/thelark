@@ -56,17 +56,16 @@ get_header(); ?>
 			<div id="viewport">
 				<div id="page-wrapper">
 					<div class="page-builder home-page"></div>
-					
 					<?php query_posts('post_type=page&order=ASC'); ?>	
 					
 					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
 						<div class="page-builder" id=
 						
-						<?php the_ID(); ?>
+						<?php the_title(); ?>
 						
 						>
-
+						<a class="home-button">home</a>
 							
 
 							<?php the_content(); ?>

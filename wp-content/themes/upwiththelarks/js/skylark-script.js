@@ -1,5 +1,6 @@
-
-//CREATE STATE FOR ALL FUNCTION TO READ FROM.
+// Things to do
+// CREATE STATE FOR ALL FUNCTION TO READ FROM?
+// CHANGE PAGE ANCHOR POINTS TO BE THE PAGE TITLE, MATCH THESE TO THE POST TITLE AND USE THESE AS THE NAVIGATION SCROLL POINTS
 
 var screenWidth = jQuery(window).width()
 var screenHeight = jQuery(window).height() -2
@@ -7,6 +8,7 @@ var currentPosition = 0
 var resize
 var viewportWidth = jQuery('#viewport').width() 
 var images = []
+var viewportHeight
 
 jQuery( document ).ready(function() {
  // addContactDetails()
@@ -15,6 +17,8 @@ jQuery( document ).ready(function() {
  getInstagramImage()
  addHomeToMenu()
  setViewportMargin()
+ setSiteHeader()
+ // setViewportHeight()
 })
 
 // resize function that deletes and redraws the size of the post tiles
@@ -24,116 +28,127 @@ jQuery(window).resize(function() {
   // buildPages();
   setPostSize()
   setViewportMargin()
-
+  setSiteHeader()
 })
 
 // pops Home/Maison to the beggining of the menu
 
 function addHomeToMenu(){
   jQuery('.home-page').attr('id', "home")
-  jQuery('.nav-menu').prepend('  <li class="homePag"><a href="#home">home | maison</a></li>')
+  jQuery('.nav-menu').prepend('  <li class="homePage"><a href="#home">home | maison</a></li>')
 }
 
-// function to scroll the viewport back to the first page (the post tiles)
 
-// jQuery(function(){
-//   jQuery('.site-title').bind('click', function(event){
-//     jQuery('#viewport').stop().animate({
-//       scrollLeft: (100000000)
+// function setViewportHeight(){
+//   var headerHeight = jQuery('.site-header').height();
+//   viewportHeight = screenHeight - headerHeight;
+
+//   console.log("height",  screenHeight )
+//   console.log("height",  headerHeight )
+//   console.log("viewportSize", viewportHeight)
+// }
+
+
+
+
+// function that creates an animated scroll left or right through the pages inside the 'viewport' after a link is clicked in the header menu
+
+// jQuery(function() {
+//   jQuery('ul>li>a').bind('click',function(event){
+//     var viewportPosition = jQuery('#viewport').offset().left;
+//     var anchor = jQuery(this);
+//     var targetAnchor = jQuery(anchor.attr('href')).offset().left
+//     var targetAnchorSum = targetAnchor - viewportPosition 
+//     var moveTo = targetAnchorSum + currentPosition
+//     jQuery('#viewport')
+//     .stop()
+//     .animate({
+//       scrollLeft: (moveTo)
 //     }, 1000);
-//     currentPosition = 0
+//     currentPosition = moveTo
+//     event.preventDefault();
+//   });
+// });
+// jQuery(function() {
+
+// var anchor = jQuery(links[i]).attr('href').split("id=")[1]
+// jQuery(links[i]).attr('href', "#"+anchor)
+
+// })
+
+// jQuery(function() {
+//   jQuery('ul>li>a').bind('click',function(event){
+//     var viewportPosition = jQuery('#viewport').offset().left;
+//     var anchor = jQuery(this);
+//     var targetAnchor = jQuery(anchor.attr('href')).offset().left
+//     var targetAnchorSum = targetAnchor - viewportPosition 
+//     var moveTo = targetAnchorSum + currentPosition
+//     jQuery('#viewport')
+//     .stop()
+//     .animate({
+//       scrollLeft: (moveTo)
+//     }, 1000);
+//     currentPosition = moveTo
 //     event.preventDefault();
 //   });
 // });
 
-// display photos in Food tile
-
 jQuery(function() {
-  var dir = "wp-content/uploads/food";
-  var fileextension = ".jpg";
-  // var images = []
-  jQuery.ajax({
-      //This will retrieve the contents of the folder if the folder is configured as 'browsable'
-      url: dir,
-      success: function (data) {
-          // List all .png file names in the page
-          jQuery(data).find("a:contains(" + fileextension + ")").each(function () {
-            var filename = this.href.replace(window.location.host, "").replace("http://", "");
-            images.push( jQuery("<img src='" + dir + filename + "'>"))
-            // jQuery(".background-food").append(images);
-          });
-          for(var i = 0; i < images.length; i++) {
-              images.splice(i+0,1);
-          }
 
-            // console.log("img", images)
-            // jQuery(".background-food").append(images[0]);
+  jQuery('.background-image').bind('click',function(event){
+var viewportPosition = jQuery('#viewport').offset().left;
 
-         for (var i=0; i< images.length; i++) {
-            (function(ind) {
-                setTimeout(function(){jQuery(".background-food").empty().append(images[ind]);;}, 1000 * ind);
-            })(i);
-         }
-
-
-        }
-      });
-})
-
-// jQuery(function(){
-//   setTimeout("slideshow()",2500)
-// })
-
-// function slideshow(){
-//   var num = 0
-//   num++
-//   consoleLog(num)
-//   setTimeout("slideshow()",2500)
-// }
-
-// function consoleLog(num){
-//   // jQuery(".background-food").append(images[num]);
-//   console.log("hello", num)
-// }
-
-// function that creates an animated scroll left or right through the pages inside the 'viewport' after a link is clicked in the header menu
-
-jQuery(function() {
-  jQuery('ul>li>a').bind('click',function(event){
-    var viewportPosition = jQuery('#viewport').offset().left;
-    var anchor = jQuery(this);
-    var targetAnchor = jQuery(anchor.attr('href')).offset().left
-    var targetAnchorSum = targetAnchor - viewportPosition 
-    var moveTo = targetAnchorSum + currentPosition
-    jQuery('#viewport')
-    .stop()
-    .animate({
-      scrollLeft: (moveTo)
-    }, 1000);
-    currentPosition = moveTo
-    event.preventDefault();
+var anchor = jQuery(this).find('.anchor-point')[0].innerText.toLowerCase()
+var hashAnchor = "#" + anchor
+console.log("hash", hashAnchor)
+var targetAnchor = jQuery(hashAnchor).offset().left
+  
+var targetAnchorSum = targetAnchor - viewportPosition 
+var moveTo = targetAnchorSum + currentPosition
+jQuery('#viewport')
+.stop()
+.animate({
+  scrollLeft: (moveTo)
+}, 1000);
+currentPosition = moveTo
+event.preventDefault();
   });
 });
 
+
+// returns any page back home
+
+jQuery(function() {
+
+  jQuery('.home-button').bind('click',function(event){
+
+var anchor = jQuery(this)[0].innerText.toLowerCase()
+var hashAnchor = "#" + anchor
+  
+var moveTo = 0
+jQuery('#viewport')
+.stop()
+.animate({
+  scrollLeft: (moveTo)
+}, 1000);
+currentPosition = moveTo
+event.preventDefault();
+  });
+});
 
 // hide / show hidden elements / images in the tile posts
 
 jQuery(function(){
   jQuery('.background-hide').hide();
-  jQuery('.hidden-post-title').hide();
 
   jQuery('.background-image').hover(
     function(){
       jQuery(this).children('.background-hide').stop(true, true).fadeIn()
-      jQuery(this).children('.hidden-post-title').stop(true, true).fadeIn()
       jQuery(this).children('.post-title').stop(true, true).fadeOut()
-      jQuery(this).children('.background-show').stop(true, true).fadeOut()
     },
     function(){
       jQuery(this).children('.background-hide').stop(true, true).fadeOut()
-      jQuery(this).children('.hidden-post-title').stop(true, true).fadeOut()
       jQuery(this).children('.post-title').stop(true, true).fadeIn() 
-      jQuery(this).children('.background-show').stop(true, true).fadeIn()
 
     });
 });
@@ -145,21 +160,8 @@ jQuery(function(){
 
 function setViewportMargin(){
   var menuHeight = jQuery('#masthead').height()
-  jQuery('#viewport').css('margin-top', menuHeight + 5)
+  jQuery('#viewport').css('margin-top', menuHeight + 30)
 }
-
-// takes the (hidden with css) tagline, generated within wordpress, splits at an asterix and separates onto new lines to create a multiple line tagline
-
-// function addContactDetails(){
-//   var split = jQuery('.site-description')[0].innerHTML.split('*')
-//   jQuery("<div></div>")
-//   .addClass('split-tagline')
-//   .appendTo('.site-branding');
-
-//   for (var i = 0; i < split.length; i++){
-//     jQuery('<p>').html(split[i]).appendTo('.split-tagline')
-//   }
-// };
 
 // a plugin is used to pull the most recent image from instagram, this strips away all the irrelevant html and presents just the image without
 
@@ -167,7 +169,7 @@ function getInstagramImage(){
 
   setTimeout(function(){
     var instagramClone = jQuery('.instagram-clone')
-    var instaImage = jQuery('div.post-wrapper')
+    var instaImage = jQuery('div.hidden-instagram')
     .eq(1)
     .find('img')
     instaImage.removeAttr("height width")
@@ -177,7 +179,6 @@ function getInstagramImage(){
 }
 
 function cloneEvent(){
-
   var openingHoursContent = jQuery('div.hidden-opening-hours')
   .find(".simcal-event-details")
   .first()
@@ -198,8 +199,13 @@ function cloneEvent(){
 
 function buildPages(){
 
+  var headerHeight = jQuery('.site-header').height();
+  var screenHeight = jQuery(window).height() -2
+  var viewportHeight = screenHeight - headerHeight;
+
   var newPosts = jQuery('.page-builder').eq(0)
-  viewportWidth = jQuery('#viewport').width()
+  viewportWidth = viewportHeight - 90 
+  jQuery('#viewport').css('width', viewportWidth)
   setPostSize()
   jQuery("#main")
   .clone()
@@ -208,12 +214,19 @@ function buildPages(){
   .appendTo(newPosts)
 }
 
+function setSiteHeader(){
+  screenWidth = jQuery(window).width()
+  jQuery('.site-header').css('width', viewportWidth)
+  jQuery('#viewport').css('margin-left', (screenWidth - viewportWidth) / 2)
+  jQuery('.site-header').css('margin-left', (screenWidth - viewportWidth) / 2)
+}
+
 function setPostSize(){
 // MUST AMEND TO ALLOW FOR ADDITION OF BORDERS AND MARGINS
 var newPosts = jQuery('.page-builder').eq(0)
 viewportWidth = jQuery('#viewport').width()
-resize = (viewportWidth - 35) / 3 
-if (viewportWidth < 450){
+resize = (viewportWidth - 24) / 3 
+if (screenWidth < 450){
   var cw = jQuery('.post-wrapper')
   .css({"width": (viewportWidth - 2), "height": (screenHeight / 5)})
   .width();
