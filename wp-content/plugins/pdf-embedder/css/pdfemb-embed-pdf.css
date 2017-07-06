@@ -4,11 +4,9 @@ div.pdfemb-viewer {
 	line-height: 1;
 	margin: 0px;
 	padding: 0px;
-	border: 1px solid black;
 	position: relative;
 	text-align: left;
 	direction: ltr;
-    background-color: lightGrey;
 }
 
 div.pdfemb-inner-div {
@@ -121,7 +119,7 @@ div.pdfemb-toolbar-fixed {
 }
 
 div.pdfemb-toolbar-hover {
-    display: none;
+    /*display: none;*/
 }
 
 div.pdfemb-toolbar-top {
@@ -265,6 +263,7 @@ div.pdfemb-toolbar div.pdfemb-poweredby a {
 div.pdfemb-toolbar div.pdfemb-poweredby a:hover {
     border-bottom: none;
 }
+
 
 div.pdfemb-errormsg {
 	padding: 5px;

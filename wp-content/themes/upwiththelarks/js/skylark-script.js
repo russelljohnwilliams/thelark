@@ -1,6 +1,5 @@
 // Things to do
 // CREATE STATE FOR ALL FUNCTION TO READ FROM?
-// CHANGE PAGE ANCHOR POINTS TO BE THE PAGE TITLE, MATCH THESE TO THE POST TITLE AND USE THESE AS THE NAVIGATION SCROLL POINTS
 
 var screenWidth = jQuery(window).width()
 var screenHeight = jQuery(window).height() -2
@@ -11,14 +10,12 @@ var images = []
 var viewportHeight
 
 jQuery( document ).ready(function() {
- // addContactDetails()
  cloneEvent()
  buildPages()
  getInstagramImage()
  addHomeToMenu()
  setViewportMargin()
  setSiteHeader()
- // setViewportHeight()
 })
 
 // resize function that deletes and redraws the size of the post tiles
@@ -39,59 +36,7 @@ function addHomeToMenu(){
 }
 
 
-// function setViewportHeight(){
-//   var headerHeight = jQuery('.site-header').height();
-//   viewportHeight = screenHeight - headerHeight;
-
-//   console.log("height",  screenHeight )
-//   console.log("height",  headerHeight )
-//   console.log("viewportSize", viewportHeight)
-// }
-
-
-
-
 // function that creates an animated scroll left or right through the pages inside the 'viewport' after a link is clicked in the header menu
-
-// jQuery(function() {
-//   jQuery('ul>li>a').bind('click',function(event){
-//     var viewportPosition = jQuery('#viewport').offset().left;
-//     var anchor = jQuery(this);
-//     var targetAnchor = jQuery(anchor.attr('href')).offset().left
-//     var targetAnchorSum = targetAnchor - viewportPosition 
-//     var moveTo = targetAnchorSum + currentPosition
-//     jQuery('#viewport')
-//     .stop()
-//     .animate({
-//       scrollLeft: (moveTo)
-//     }, 1000);
-//     currentPosition = moveTo
-//     event.preventDefault();
-//   });
-// });
-// jQuery(function() {
-
-// var anchor = jQuery(links[i]).attr('href').split("id=")[1]
-// jQuery(links[i]).attr('href', "#"+anchor)
-
-// })
-
-// jQuery(function() {
-//   jQuery('ul>li>a').bind('click',function(event){
-//     var viewportPosition = jQuery('#viewport').offset().left;
-//     var anchor = jQuery(this);
-//     var targetAnchor = jQuery(anchor.attr('href')).offset().left
-//     var targetAnchorSum = targetAnchor - viewportPosition 
-//     var moveTo = targetAnchorSum + currentPosition
-//     jQuery('#viewport')
-//     .stop()
-//     .animate({
-//       scrollLeft: (moveTo)
-//     }, 1000);
-//     currentPosition = moveTo
-//     event.preventDefault();
-//   });
-// });
 
 jQuery(function() {
 

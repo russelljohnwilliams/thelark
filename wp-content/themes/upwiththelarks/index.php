@@ -25,7 +25,7 @@ get_header(); ?>
 			<h1 class="page-title screen-reader-text">
 
 				// <?php single_post_title(); ?>
-			
+
 			</h1>
 		</header>
 
@@ -42,15 +42,15 @@ get_header(); ?>
 					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 					 */
 					get_template_part( 'template-parts/content', get_post_format() );
-				
+
 					endwhile;
-				
+
 					the_posts_navigation();
 					else :
 						get_template_part( 'template-parts/content', 'none' );
-				
+
 					endif; ?>
-				
+
 				</main><!-- #main -->
 			</div><!-- #primary -->
 			<div id="viewport">
@@ -65,21 +65,23 @@ get_header(); ?>
 						<?php the_title(); ?>
 						
 						>
-						<a class="home-button">home</a>
-							
-
-							<?php the_content(); ?>
-			
-
+						<div class="page-title">
+							<a class="home-button">x</a>
+							<a class="a-title"><?php the_title(); ?></a>
 						</div>
-						<?php endwhile; endif; ?>
+						<div class="page-content">
+							<?php the_content(); ?>
+
+						</div>	
 					</div>
+				<?php endwhile; endif; ?>
+			</div>
 
-				</div>
+		</div>
 	<!-- 			<div id="left-button"><</div>
-				<div id="right-button">></div> -->
-		
+	<div id="right-button">></div> -->
 
-			<?php
-			get_sidebar();
-			get_footer();
+
+	<?php
+	get_sidebar();
+	get_footer();
