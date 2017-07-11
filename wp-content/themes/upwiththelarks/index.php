@@ -67,7 +67,7 @@ get_header(); ?>
 						>
 						<div class="page-title">
 							<a class="home-button">x</a>
-							<a class="a-title"><?php the_title(); ?></a>
+							<a class="content-areax-title"><?php the_title(); ?></a>
 						</div>
 						<div class="page-content">
 							<?php the_content(); ?>

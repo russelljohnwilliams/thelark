@@ -123,23 +123,52 @@ function getInstagramImage(){
     .appendTo(instagramClone) }, 2000);
 }
 
+// function cloneEvent(){
+//   var openingHoursContent = jQuery('div.hidden-opening-hours')
+//   .find(".simcal-event-details")
+//   .first()
+//   var eventContent = jQuery( "div.hidden-events")
+//   .find(".simcal-event-details")
+//   .first()
+
+//   var clonedOpeningHours= jQuery('.cloned-opening-hours')
+//   var clonedEvent = jQuery('.cloned-event')
+
+//   openingHoursContent.clone()
+//   .appendTo(clonedOpeningHours)
+
+//   eventContent.clone()
+//   .appendTo(clonedEvent)
+// }
+
+
 function cloneEvent(){
   var openingHoursContent = jQuery('div.hidden-opening-hours')
   .find(".simcal-event-details")
   .first()
-  var eventContent = jQuery( "div.hidden-events")
+
+  var tomorrowsOpeningHoursContent = jQuery('div.tomorrow')
   .find(".simcal-event-details")
   .first()
 
-  var clonedOpeningHours= jQuery('.cloned-opening-hours')
-  var clonedEvent = jQuery('.cloned-event')
+  console.log("what it says", openingHoursContent.text().trim())
 
-  openingHoursContent.clone()
-  .appendTo(clonedOpeningHours)
-
-  eventContent.clone()
-  .appendTo(clonedEvent)
+  var clonedOpeningHours = jQuery('.cloned-opening-hours')
+  if (openingHoursContent.text().trim() != "zzz" ){
+  var clone = openingHoursContent
+  // console.log("today", clone[0].innerText)
+}else{
+  var clone = tomorrowsOpeningHoursContent
+  // console.log("tomorrow", clone[0].innerText)
 }
+console.log("clone-thing", clone.text().trim())
+clone.clone()
+.appendTo(clonedOpeningHours)
+}
+
+
+
+
 
 
 function buildPages(){
