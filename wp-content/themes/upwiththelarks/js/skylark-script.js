@@ -13,7 +13,7 @@ jQuery( document ).ready(function() {
  cloneEvent()
  buildPages()
  getInstagramImage()
- addHomeToMenu()
+ // addHomeToMenu()
  setViewportMargin()
  setSiteHeader()
 })
@@ -21,8 +21,9 @@ jQuery( document ).ready(function() {
 // resize function that deletes and redraws the size of the post tiles
 
 jQuery(window).resize(function() {
-  // jQuery('#new-main').remove();
-  // buildPages();
+  jQuery('#new-main').remove();
+  // jQuery('.post-wrapper').remove();
+  buildPages();
   setPostSize()
   setViewportMargin()
   setSiteHeader()
@@ -30,10 +31,10 @@ jQuery(window).resize(function() {
 
 // pops Home/Maison to the beggining of the menu
 
-function addHomeToMenu(){
-  jQuery('.home-page').attr('id', "home")
-  jQuery('.nav-menu').prepend('  <li class="homePage"><a href="#home">home | maison</a></li>')
-}
+// function addHomeToMenu(){
+//   jQuery('.home-page').attr('id', "home")
+//   jQuery('.nav-menu').prepend('  <li class="homePage"><a href="#home">home | maison</a></li>')
+// }
 
 
 // function that creates an animated scroll left or right through the pages inside the 'viewport' after a link is clicked in the header menu
@@ -172,7 +173,7 @@ clone.clone()
 
 
 function buildPages(){
-
+  console.log("poop poop")
   var headerHeight = jQuery('.site-header').height();
   var screenHeight = jQuery(window).height() -2
   var viewportHeight = screenHeight - headerHeight;
@@ -196,37 +197,33 @@ function setSiteHeader(){
 }
 
 function setPostSize(){
+
 // MUST AMEND TO ALLOW FOR ADDITION OF BORDERS AND MARGINS
+
 var newPosts = jQuery('.page-builder').eq(0)
 viewportWidth = jQuery('#viewport').width()
 resize = (viewportWidth - 24) / 3 
 if (screenWidth < 450){
-  var cw = jQuery('.post-wrapper')
+  var postWrapper = jQuery('.post-wrapper')
   .css({"width": (viewportWidth - 2), "height": (screenHeight / 5)})
   .width();
-
   jQuery('#viewport').height((screenHeight / 5) * 4)
   var viewportHeight = jQuery('#viewport').height()
-
   jQuery('#masthead').css('height', screenHeight / 5)
-
 }
-else{
-
-  var cw = jQuery('.post-wrapper')
+else
+{
+  var postWrapper = jQuery('.post-wrapper')
   .css("width", (resize) )
   .width();
   var border = jQuery('.post-wrapper').css("border")
-  var totalWidth = (parseInt(border[0]) * 2)  + cw
+  var totalWidth = (parseInt(border[0]) * 2)  + postWrapper
   jQuery('.post-wrapper').css('height', totalWidth +'px');
   jQuery('#viewport').height(viewportWidth)
-
-
 }
-var viewportHeight = jQuery('#viewport').height()
-jQuery('.page-builder').css('width', (viewportHeight) +'px')
-jQuery('.page-wrapper').css('height', (viewportHeight) +'px')
-jQuery('.page-builder').css('height', (viewportHeight) +'px')
-
+  var viewportHeight = jQuery('#viewport').height()
+  jQuery('.page-builder').css('width', (viewportHeight) +'px')
+  jQuery('.page-wrapper').css('height', (viewportHeight) +'px')
+  jQuery('.page-builder').css('height', (viewportHeight) +'px')
 }
 
