@@ -916,11 +916,15 @@ object {
 
 =============================================================*/
 
-
 html body{
 	font-family: 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	align-items: center;
+
+}
+
+body{
+	visibility: hidden;
 }
 
 h1{
@@ -931,6 +935,7 @@ p{
 	margin: 0;
 	padding: 0;
 }
+
 
 #secondary, #main, .site-info,.tomorrow, .entry-meta, .simcal-align-right, .entry-footer, .hidden-opening-hours, .hidden-instagram, .hidden-events, .cff-bottom, .entry-footer, .menu {
 	display: none;
@@ -952,22 +957,23 @@ p{
 	margin: 0;
 	margin-top: 15px;
 	padding: 0 5px 0 5px;
+	background: white;
 }
 
 .skylark-header-image{
 	float: right;
-	width: 8vh;
-	height: 8vh;
+	width: 70px;
+	height: 70px;
 }
 
 .contact-and-title{
 	float: left;
-	font-size: 1.5vh;
+	font-size: 0.8rem;
 	letter-spacing: 1px;
 }
 
 .split-tagline, .contact-details{
-	font-size: 1.2vh;
+	font-size: 0.7rem;
 }
 
 .site-title{
@@ -987,11 +993,12 @@ p{
 	padding: 5px 0;
 	border-top: 3px solid black;
 	border-bottom: 3px solid black;
+
 }
 
 
 /*--------------------------------------------------------------
- front page tiles
+ front page tiles/posts
 --------------------------------------------------------------*/
 
 
@@ -1010,6 +1017,7 @@ p{
 	margin-right: -1px;
 	margin: 4px;
 	margin-bottom: -3px;
+	overflow: hidden;
 }
 
 .post{
@@ -1026,23 +1034,21 @@ p{
 }
 
  .post-title{
-	width: 100%;
-	text-align: center;
+
 	position: absolute;
 	top: 35%;
-	font-size: 2.5vh;
+	font-size: 1.3rem;
 	font-weight: bold;
 	pointer-events: none;
 	letter-spacing: 5px;
 	display: block;
 	text-align: center;
 	width: 100%;
-	padding: 0 10px;
 }
 
 .background-image{
-	height: 100%;
-	width: 100%;
+	height: 101%;
+	width: 101%;
 }
 
 .instagram-clone{
@@ -1098,7 +1104,7 @@ p{
 
 	letter-spacing: 5px;
 	border-bottom: 3px solid black;
-	padding: 1.5vh;
+	padding: 1% 3%;
 	text-decoration: none;
 	position: absolute;
 	width: calc(100% - 6px);
@@ -1109,14 +1115,14 @@ p{
 
 .home-button{
 	font-weight: 700;
-	font-size: 3vh;
+	font-size: 1.6rem;
 }
 
 .content-areax-title{
 	float: right;
 	font-weight: 700;
 	letter-spacing: 10px;
-	font-size: 3vh;
+	font-size: 1.6rem;
 
 }
 
@@ -1152,8 +1158,6 @@ p{
 		position: fixed;
 	}
 	
-	
-
 	.skylark-header-image{
 		float: right;
 		position: unset;
@@ -1179,8 +1183,7 @@ p{
 
 }
 
-@media (max-width: 450px) and (orientation: portrait){
-
+@media (max-width: 500px) and (orientation: portrait){
 
 	.skylark-header-image{
 	}
@@ -1191,7 +1194,6 @@ p{
 	.post-wrapper{
 		margin: 0;
 	}
-
 
 }
 
