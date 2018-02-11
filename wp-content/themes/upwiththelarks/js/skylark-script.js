@@ -20,14 +20,6 @@ jQuery( document ).ready(function() {
 
 jQuery(window).resize(function() {
   // jQuery('#new-main').remove();
-  //  screenWidth = jQuery(window).width()
-  //  screenHeight = jQuery(window).height() -2
-  // setViewportMarginHeight()
-  // createVeiwport()
-  // cloneMainInsideViewport()
-  // centerTheSite()
-  // setHeaderWidth()
-  // setPostSize()
 })
 
 function setHeaderWidth(){
@@ -56,11 +48,11 @@ function cloneMainInsideViewport(){
   jQuery("#main").clone().removeAttr('id').attr('id', "new-main").appendTo(newPosts)
 }
 
-// MUST AMEND TO ALLOW FOR ADDITION OF BORDERS AND MARGINS
 function setPostSize(){
   var resizeScreen = (viewportWidth - 24) / 3 
   if (screenWidth < 500){
-    var postWrapper = jQuery('.post-wrapper').css({"width": (viewportWidth - 2), "height": (screenHeight / 5)}).width();
+    jQuery('.post-wrapper').css({"width": (viewportWidth - 2), "height": (screenHeight / 5)})
+    var postWrapper = jQuery('.post-wrapper').width();
     jQuery('#viewport').height((screenHeight / 5) * 4)
     var viewportHeight = jQuery('#viewport').height()
     jQuery('#masthead').css('height', screenHeight / 5)
@@ -75,10 +67,12 @@ function setPostSize(){
   jQuery('.page-builder').css('width', (viewportHeight) +'px')
   jQuery('.page-wrapper').css('height', (viewportHeight) +'px')
   jQuery('.page-builder').css('height', (viewportHeight) +'px')
+  makeSiteVisible()
 }
 
 function getInstagramImage(){
   setTimeout(function(){
+    jQuery('body').css('visibility', 'visible'),2000
     var instagramClone = jQuery('.instagram-clone')
     var instaImage = jQuery('div.hidden-instagram').eq(1).find('img')
     instaImage.removeAttr("height width").css({"display" : "block", "height" : "100%", "width" : "100%"}).clone().appendTo(instagramClone) }, 2000);
@@ -96,17 +90,15 @@ function showOpeningHours(){
   clone.clone().appendTo(clonedOpeningHours)
 }
 
+//visibility is initially hidden, and then marked as visible after a set time, this hides boxes when resizing which looks unsightly
 
-
-//visibility is initially hidden, and then marked as visible after a set time, this hides boxes from resising that looks unsightly
-
-jQuery(function(){
+function makeSiteVisible(){
   setTimeout(function(){
     jQuery('body').css('visibility', 'visible'),2000  
   })
-})
+}
 
-// function that creates an animated scroll left or right through the pages inside the 'viewport' after a link is clicked in the header menu
+// function that creates an animated scroll left or right through the pages inside the 'viewport'
 
 jQuery(function() {
   jQuery('.background-image').bind('click',function(event){
@@ -115,11 +107,11 @@ jQuery(function() {
     var hashAnchor = "#" + anchor
     var targetAnchor = jQuery(hashAnchor).offset().left
     var targetAnchorSum = targetAnchor - viewportPosition 
-    var moveTo = targetAnchorSum + currentPosition
+    var destination = targetAnchorSum + currentPosition
     jQuery('#viewport').stop().animate({
-      scrollLeft: (moveTo)
+      scrollLeft: (destination)
     }, 1000);
-    currentPosition = moveTo
+    currentPosition = destination
     event.preventDefault();
   });
 });
@@ -128,13 +120,12 @@ jQuery(function() {
 
 jQuery(function() {
   jQuery('.home-button').bind('click',function(event){
-    var anchor = jQuery(this)[0].innerText.toLowerCase()
-    var hashAnchor = "#" + anchor
-    var moveTo = 0
+
+    var destination = 0
     jQuery('#viewport').stop().animate({
-      scrollLeft: (moveTo)
+      scrollLeft: (destination)
     }, 1000);
-    currentPosition = moveTo
+    currentPosition = destination
     event.preventDefault();
   });
 });

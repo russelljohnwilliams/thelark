@@ -56,6 +56,7 @@ get_header(); ?>
 			<div id="viewport">
 				<div id="page-wrapper">
 					<div class="page-builder home-page"></div>
+
 					<?php query_posts('post_type=page&order=ASC'); ?>	
 					
 					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
@@ -66,7 +67,7 @@ get_header(); ?>
 						
 						>
 						<div class="page-title">
-							<a class="home-button">x</a>
+							<a class="home-button"><</a>
 							<a class="content-areax-title"><?php the_title(); ?></a>
 						</div>
 						<div class="page-content">

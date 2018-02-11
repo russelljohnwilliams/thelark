@@ -920,7 +920,6 @@ html body{
 	font-family: 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	align-items: center;
-
 }
 
 body{
@@ -1047,8 +1046,10 @@ p{
 }
 
 .background-image{
-	height: 101%;
-	width: 101%;
+	height: 102%;
+	width: 102%;
+	margin-left: -2px;
+	margin-top: -2px;
 }
 
 .instagram-clone{
@@ -1072,7 +1073,7 @@ p{
 --------------------------------------------------------------*/
 
 #page-wrapper{
-	width: 6000px;
+	width: 9000px;
 	overflow: auto;
 }
 
