@@ -543,13 +543,21 @@ a:hover{
 	padding-left: 0;
 }
 
-.floated-text {
+.floated-text, .floated-text-instagram {
 	position: absolute;
 	color: white;
+	font-size: large;
+	font-weight: bold;
 	text-align: center;
 	width: 100%;
 	top: 30%;
+	padding: 0 10px
 }
+
+.floated-text-instagram{
+	top:10%;
+}
+
 .main-navigation li {
 	float: left;
 	position: relative;
@@ -900,10 +908,13 @@ object {
 }
 
 
-/*--------------------------------------------------------------
-# Custom CSS
---------------------------------------------------------------*/
 
+
+/* ==========================================================
+
+													CUSTOM CSS
+
+=============================================================*/
 
 
 html body{
@@ -912,10 +923,23 @@ html body{
 	align-items: center;
 }
 
+h1{
+	margin: 0;
+}
 
-#secondary, #main, .site-info,.tomorrow, .entry-meta, .simcal-align-right, .entry-footer, .hidden-opening-hours, .hidden-instagram, .hidden-events, .cff-bottom, .entry-footer{
+p{
+	margin: 0;
+	padding: 0;
+}
+
+#secondary, #main, .site-info,.tomorrow, .entry-meta, .simcal-align-right, .entry-footer, .hidden-opening-hours, .hidden-instagram, .hidden-events, .cff-bottom, .entry-footer, .menu {
 	display: none;
 }
+
+/*--------------------------------------------------------------
+ header
+--------------------------------------------------------------*/
+
 
 .site-header, #page{
 	padding: 0px;
@@ -927,50 +951,19 @@ html body{
 	z-index: 10;
 	margin: 0;
 	margin-top: 15px;
-/*	border-top: 4px solid black; 
-	border-bottom: 4px solid black; */
-	background: -webkit-linear-gradient(bottom, rgba(0,0,0,0), rgba(255,255,255,1)); 
-	/*width: 100%;*/
-	/*padding: 10px 20px 0 20px;*/
-
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+87,ffffff+100&1+88,0+100 */
-	background: -moz-linear-gradient(top, rgba(255,255,255,1) 91%, rgba(255,255,255,1) 92%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top, rgba(255,255,255,1) 91%,rgba(255,255,255,1) 92%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom, rgba(255,255,255,1) 91%,rgba(255,255,255,1) 92%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
 	padding: 0 5px 0 5px;
 }
-
-
-
-h1{
-	margin: 0;
-}
-
-.split-tagline, .contact-details{
-	/*float: left;*/
-	/*left: 50px;*/
-}
-
-
 
 .skylark-header-image{
 	float: right;
 	width: 8vh;
 	height: 8vh;
-	/*float: right;*/
-	/*display: inline-block;*/
-	/*position: absolute;*/
-	/*float: right;*/
-	/*right: calc(50% - (75px / 2))*/
 }
 
 .contact-and-title{
-	/*padding-top: 5px;*/
 	float: left;
 	font-size: 1.5vh;
 	letter-spacing: 1px;
-	color: black;
 }
 
 .split-tagline, .contact-details{
@@ -983,13 +976,11 @@ h1{
 	padding-top: 10px;
 }
 
-
 .contact-details{
 	position: absolute;
 	bottom: 0;
 	padding-bottom: 10px;
 }
-
 
 .site-header-content{
 	overflow: auto;
@@ -998,98 +989,27 @@ h1{
 	border-bottom: 3px solid black;
 }
 
-.menu {
-	display: none;
-	text-align:center;
-	font-size: 1.1vh;
-	border-top: 4px solid black;
-	/*padding-top: 5px;*/
-}
 
-.menu li {
-	display:inline-block;
-	float:none;
-	margin: 5px;
-}
+/*--------------------------------------------------------------
+ front page tiles
+--------------------------------------------------------------*/
 
-.menu li li {
-	display:block;
-	text-align:left
-}
 
-.entry-content{
-	margin: 0;
-	color: black;
-	overflow: hidden;
-	height: 100%;
-}
-/*
-.entry-title{
-	display: none;
-}*/
-
-.entry-header{
+.cloned-opening-hours{
+	padding: 0 10px;
 	position: absolute;
-	z-index: 10;
-}
-/*
-.site-description{
-	display: none;
-}*/
-
-
-.entry-content p, .cff-wrapper, .cloned-opening-hours{
-	/*padding: 35px 10px 0 10px;*/
-	overflow: hidden;
-}
-
-p{
-	margin: 0;
-	padding: 0;
-	/*color: black;*/	
-}
-/*
-.scrollable{
-	overflow: auto;
-	text-align: justify;
-}*/
-
-.simcal-event-description{
-	margin-top: -15px;
-	padding-bottom: 15px;
-}
-
-.simcal-event-details{
-	height: 100%;
-}
-
-p.cloned-event{
-}
-
-.simcal-event-description p{
-	margin-top: 8%;
-}
-
-#page-wrapper{
-	width: 6000px;
-	overflow: auto;
-}
-
-.food-menu{
-	width: 95%;
+	top: 10%;
 }
 
 .post-wrapper{
-	/*background: whitesmoke;*/
+	background: white;
 	display: inline-block;
 	overflow: auto;
-	/*margin: 3px;*/
 	border: 3px solid black;
 	font-size: small;
 	margin-right: -1px;
 	margin: 4px;
 	margin-bottom: -3px;
-
 }
 
 .post{
@@ -1097,51 +1017,27 @@ p.cloned-event{
 	height: 100%;
 }
 
-/*#viewport, .site-header{
-	left: 30%;
-	right: 30%;
-	width: calc(100% - 60%);
-}*/
-
-#viewport{
-	/*width: 100%;*/
-	/*height: 520px;*/
-	/*padding: 5px;*/
-	overflow: hidden;
-	position: absolute;
-/*	box-shadow: inset 
-	  0 0 0 4px hsl(10, 0%, 0%);*/
-}
-
 .cloned-opening-hours, .opening-hours-wrapper{
 	font-size: 2.50vh;
 	font-weight: bold;
 	color: black;
+	color: white;
+	font-size: large;
 }
 
-.page-builder{
-	float: left;
-	width: 980px;
-	height: 480px;
-	/*padding: 5px;*/
-	/*border: 5px solid white;*/
-	overflow: auto;
-}
-
-.background-food img{
-	/*height: 100%;*/
+ .post-title{
 	width: 100%;
-}
-
-.background-hide{
-	/*position: relative;*/
-	overflow: hidden;
-	height: 100%;	
-}
-
-.instagram-clone{
-	height: 100%;
+	text-align: center;
+	position: absolute;
+	top: 35%;
+	font-size: 2.5vh;
+	font-weight: bold;
+	pointer-events: none;
+	letter-spacing: 5px;
+	display: block;
+	text-align: center;
 	width: 100%;
+	padding: 0 10px;
 }
 
 .background-image{
@@ -1149,22 +1045,8 @@ p.cloned-event{
 	width: 100%;
 }
 
-.beer-title, .gin-title, .post-title, .hidden-post-title{
-	width: 100%;
-	text-align: center;
-	position: absolute;
-	top: 35%;
-	color: /*black*/;
-	font-size: 2.5vh;
-	font-weight: bold;
-
-	pointer-events: none;
-	letter-spacing: 5px;
-}
-
-.post-title{
-	display: block;
-	text-align: center;
+.instagram-clone{
+	height: 100%;
 	width: 100%;
 }
 
@@ -1173,52 +1055,29 @@ p.cloned-event{
 	text-align: center;
 }
 
-
-
-#cff, .cff-item{
-	border: none;
-}
-
-.post-text, .cloned-event{
-	padding: 10px 10px 0 10px;
-	/*color: black;*/
-	z-index: 10;
-	width: 100%;
-	height: 100%;
-	margin: 0;
-}
-
 .opening-hours-title{
 	margin-bottom: -10px;
 	padding: 10px 10px 0 10px;
 }
 
-.cloned-event{
-	height: 100%;
+
+/*--------------------------------------------------------------
+ pages
+--------------------------------------------------------------*/
+
+#page-wrapper{
+	width: 6000px;
+	overflow: auto;
 }
 
-.post-wrapper{
+#viewport{
 	overflow: hidden;
+	position: absolute;
 }
 
-.food-hide{
-	/*display: none;*/
-}
-
-.event-wrapper{
-	color: black;
-}
-
-.is-expanded{
-	/*width: 700px;*/
-	margin:10px solid black;
-	/*transition: width 2s;*/
-}
-
-
-.pdfemb-viewer{
-	border: 0;
-	background-color: none;
+.page-builder{
+	float: left;
+	overflow: auto;
 }
 
 .page-builder{
@@ -1230,17 +1089,10 @@ p.cloned-event{
 	border: 0;
 }
 
-
-
-.a-title{
-	float: right;
-}
-
 .page-content{
 	padding: 12% 10px 10px 10px;
 	z-index: 2;
 }
-
 
 .page-title{
 
@@ -1268,6 +1120,16 @@ p.cloned-event{
 
 }
 
+/*--------------------------------------------------------------
+ pages - blog
+--------------------------------------------------------------*/
+
+
+.fts-jal-single-fb-post{
+	border: solid black 3px;
+	padding: 5px;
+	margin-bottom: 5px;
+}
 
 
 
@@ -1330,4 +1192,38 @@ p.cloned-event{
 		margin: 0;
 	}
 
+
 }
+
+
+
+
+
+
+
+/*#cff, .cff-item{
+	border: none;
+}*/
+
+/*.post-text, .cloned-event{
+	padding: 10px 10px 0 10px;
+	color: black;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+}
+*/
+
+
+/*.cloned-event{
+	height: 100%;
+}*/
+
+/*.post-wrapper{
+	overflow: hidden;
+}*/
+
+/*.food-hide{
+	display: none;
+}*/
