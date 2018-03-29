@@ -75,6 +75,7 @@ function getInstagramImage(){
     jQuery('body').css('visibility', 'visible'),2000
     var instagramClone = jQuery('.instagram-clone')
     var instaImage = jQuery('div.hidden-instagram').eq(1).find('img')
+    console.log("insta", instaImage)
     instaImage.removeAttr("height width").css({"display" : "block", "height" : "100%", "width" : "100%"}).clone().appendTo(instagramClone) }, 2000);
 }
 

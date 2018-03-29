@@ -79,8 +79,7 @@ get_header(); ?>
 			</div>
 
 		</div>
-	<!-- 			<div id="left-button"><</div>
-	<div id="right-button">></div> -->
+	
 
 
 	<?php
